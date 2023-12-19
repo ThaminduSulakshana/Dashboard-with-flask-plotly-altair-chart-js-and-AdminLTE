@@ -2,6 +2,8 @@
 
 This project demonstrates the process of creating a functional web dashboard using Flask, Plotly, Altair, Chart.js, and AdminLTE. The goal is to provide a simple yet effective guide for building a dashboard that combines imperative and declarative visualization techniques, along with basic web visualization using Chart.js.
 
+![Image Alt Text](https://github.com/ThaminduSulakshana/Dashboard-with-flask-plotly-altair-chart-js-and-AdminLTE/blob/0399cc61aff0c585f70f0996273f0e402e639702/Screenshot%20(201).png)
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
