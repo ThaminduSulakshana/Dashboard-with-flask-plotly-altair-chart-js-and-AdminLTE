@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block script %}
+<!-- 
+put your custom script or styling here
+
+-->
+{% endblock script %}
+
+
+{% block my_content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+            </div>
+        </li>
+    </ul>
+</nav>
+<!-- /.navbar -->
+<!-- Confirmed, Recovered, Deaths Card -->
+<div class="row">
+    <div class="col-sm">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3>{{context.total_all_confirmed}}</h3>
+
+                <p>Total Confirmed</p>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-sm">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>{{context.total_all_recovered}}<sup style="font-size: 20px"></sup></h3>
+
+                <p>Total Recovered</p>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+    <!-- ./col -->
+    <div class="col-sm">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>{{context.total_all_deaths}}</h3>
+
+                <p>Total Deaths</p>
+            </div>
+        </div>
+    </div>
+    <!-- ./col -->
+</div>
+<!-- Plotly plot placeholder -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+        </div>
+            <div class="col-6">
+                <!-- Placeholder for map-->
+                <div class="chart" id="plotly-geo">
+                </div>
+            </div>
+        <div class="col">
+        </div>
+    </div>
+        <div class="row">
+        <!-- Placeholder for the global-cases plot-->
+            <div class="chart" id="plotly-global">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <!-- Placeholder for global-time series -->
+            <div id="plotly-timeseries"></div>
+        </div>
+    </div>
+</div>
+<!-- Script to execute the Json ( we can create it also with looping) -->
+<script>
+    //Parse your Json variable here
+    var graphs = {{ context.plot_geo_analysis | safe }};
+    Plotly.plot('plotly-geo', graphs, {});
+</script>
+<script>
+    //Parse your Json variable here
+    var graphs = {{ context.plot_global_cases_per_country | safe }};
+    Plotly.plot('plotly-global', graphs, {});
+</script>
+<script>
+    //Parse your Json variable here
+    var graphs = {{ context.plot_global_time_series | safe }};
+    Plotly.plot('plotly-timeseries', graphs, {});
+</script>
+{% endblock my_content %}
