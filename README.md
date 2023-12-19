@@ -27,29 +27,26 @@ When learning Flask to create a dashboard, finding suitable tutorials can be cha
 
 The project follows a structured approach to building the dashboard. Understanding the project structure is crucial for effective development.
 
-(root)
-│   .env
-│   .gitignore
-│   config.py
-│   covid_data_cleaning.ipynb
-│   README.md
-│   requirements.txt
-│   run.py
-│
-└───web
-    │   routes.py
-    │   __init__.py
-    │
-    ├───static/
-    ├───templates
-    │       altair.html
-    │       chartjs.html
-    │       country.html
-    │       layout.html
-    │       plotly.html
-    │
-    └───utils
-            altair_plot.py
-            plotly_plot.py
-            utils.py
-            __init__.py
+/project-root
+|-- .env
+|-- .gitignore
+|-- config.py
+|-- covid_data_cleaning.ipynb
+|-- README.md
+|-- requirements.txt
+|-- run.py
+|-- web/
+| |-- routes.py
+| |-- init.py
+| |-- static/
+| |-- templates/
+| | |-- altair.html
+| | |-- chartjs.html
+| | |-- country.html
+| | |-- layout.html
+| | |-- plotly.html
+| |-- utils/
+| | |-- altair_plot.py
+| | |-- plotly_plot.py
+| | |-- utils.py
+| | |-- init.py
