@@ -27,6 +27,7 @@ When learning Flask to create a dashboard, finding suitable tutorials can be cha
 
 The project follows a structured approach to building the dashboard. Understanding the project structure is crucial for effective development.
 
+![Image Alt Text](https://github.com/ThaminduSulakshana/Dashboard-with-flask-plotly-altair-chart-js-and-AdminLTE/blob/5e6d32ca5c124021de2a6dce7f971ef301e24ab1/Screenshot%20(203).png)
 /project-root
 │   .env
 │   .gitignore
